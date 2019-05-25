@@ -43,7 +43,7 @@ addTodo = function (value){
       if(value== this.todoArray[i]){
        
        this.compTasksArray.push(value);
-       //this.todoArray.splice(i,1);
+       this.todoArray.splice(i,1);
        console.log(this.compTasksArray);
        return this.compTasksArray;
       }
