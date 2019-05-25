@@ -1,17 +1,32 @@
+<div>
+
+
 <div class="container">
 	<form #todoForm= "ngForm"(submit)="todoSubmit(todoForm.value); todoForm.resetForm()" >
 		<div class="form-group">
 		<h1 class="text-center ">Todo App</h1>
 			<div class="input-group-prepend">
-			    <input type="text" #todo  class="form-control" placeholder="Add Todo" name="todo" ngModel>
+			    <input type="text" #todo  class="form-control" placeholder="Add Todo" name="todo" >
 				<span class="input-group-text" (click)="addTodo(todo.value)">
 				<i class="material-icons">add</i></span>
 			</div>
 		</div>
 		<div class="data">
 		<ul class="list-unstyled">
-			<li [@moveInLeft]  *ngFor="let todo of todoArray">{{todo}} <i (click)="deleteItem(todo)" class="material-icons">delete</i></li>
+			<!--<li  *ngFor="let todo of todoArray">{{todo}} <i (click)="deleteItem(todo)" class="material-icons">delete</i></li>-->
+			<li *ngFor="let todo of todoArray"> {{todo}} <i  class="material-icons"><a class="list-unstyled" [routerLink]="['/tasks', todo]">done</a></i></li>
 		</ul>
 	</div>
 	</form>
+</div>
+
+</div>
+
+<div class="container" style="max-width: 30em;
+margin: 4em auto;
+position: relative;
+background: #f4f4f4;
+padding: 2em 3em;">
+		
+<router-outlet></router-outlet>
 </div>
